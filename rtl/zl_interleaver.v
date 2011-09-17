@@ -38,6 +38,8 @@ localparam Packet_len_width = 8;
 
 localparam Sync_byte = 8'h47;
 
+integer i;
+
 reg [Packet_len_width-1:0] packet_byte_count;
 
 reg [Ptr_width-1:0] rd_ptr [0:N_ptrs-1];
@@ -84,7 +86,7 @@ data_fifo
     .in_ack(),
     .in_data(data_fifo_in),
     //
-    .out_req(data_fifo_out_req)
+    .out_req(data_fifo_out_req),
     .out_ack(data_out_ack),
     .out_data(data_out),
     //
@@ -107,7 +109,7 @@ token_fifo
     .in_ack(token_fifo_in_ack),
     .in_data(1'b0),
     //
-    .out_req(token_fifo_out_req)
+    .out_req(token_fifo_out_req),
     .out_ack(data_out_ack),
     .out_data(),
     //
@@ -191,7 +193,7 @@ always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
         ptr_select <= {N_ptrs_width{1'b0}};
 
-        for(integer i=0;i<N_ptrs;i=i+1) begin
+        for(i=0;i<N_ptrs;i=i+1) begin
             rd_ptr[i] <= {Ptr_width{1'b0}};
         end
 
@@ -222,7 +224,7 @@ always @(posedge clk or negedge rst_n) begin
             if(packet_byte_count == Packet_len-1) begin
                 packet_byte_count <= {Packet_len_width{1'b0}};
             end
-            else
+            else begin
                 packet_byte_count <= packet_byte_count + 1'b1;
             end
             //

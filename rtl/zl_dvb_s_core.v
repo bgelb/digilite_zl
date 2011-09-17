@@ -43,7 +43,7 @@ wire [7:0] input_buffer_data;
 zl_fifo_sc #
 (
     .Data_width(8),
-    .Addr_width(8), // 256 bytes
+    .Addr_width(8)  // 256 bytes
 )
 input_buffer
 (
@@ -82,9 +82,9 @@ zl_sync_invert_randomizer sync_invert_randomizer
     .data_out(randomizer_data)
 );
 
-wire randomizer_req;
-wire randomizer_ack;
-wire [7:0] randomizer_data;
+wire randomizer_fifo_req;
+wire randomizer_fifo_ack;
+wire [7:0] randomizer_fifo_data;
 
 zl_fifo_2 #
 (

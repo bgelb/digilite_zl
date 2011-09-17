@@ -35,6 +35,8 @@ reg [LFSR_width-1:0] state_reg;
 reg [LFSR_width-1:0] state_next;
 reg [PRBS_width-1:0] prbs_internal;
 
+integer i;
+
 function [LFSR_width-1:0] lfsr_state_next_serial;
     input [LFSR_width-1:0] cur_state;
     begin
@@ -45,7 +47,7 @@ endfunction
 
 always @(*) begin
     state_next = state_reg;
-    for(integer i=0;i<PRBS_width;i=i+1) begin
+    for(i=0;i<PRBS_width;i=i+1) begin
        state_next = lfsr_state_next_serial(state_next);
         prbs_internal[PRBS_width-i-1] = state_next[0]; 
     end

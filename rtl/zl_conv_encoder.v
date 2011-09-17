@@ -34,6 +34,8 @@ module zl_conv_encoder #
     input  data_out_ack
 );
 
+integer i;
+
 reg [2:0] in_bit_sel;
 wire stall;
 
@@ -45,12 +47,12 @@ end
 
 always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
-        for(integer i=0;i<K-1;i=i+1) begin
+        for(i=0;i<K-1;i=i+1) begin
             shift_reg[i] <= 1'b0;
         end
     end
     else if(!stall) begin
-        for(integer i=0;i<K-1;i=i+1) begin
+        for(i=0;i<K-1;i=i+1) begin
             shift_reg[i] <= shift_reg[i+1];
         end
     end

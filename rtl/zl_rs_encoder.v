@@ -41,7 +41,7 @@ module zl_rs_encoder #
 localparam Gf_width = M;
 
 // unpack G_x vector
-wire [M-1:0] g [0:N-K-1];
+reg [M-1:0] g [0:N-K-1];
 integer i;
 always @(*) begin
     for(i=0;i<N-K;i=i+1) begin
@@ -79,9 +79,9 @@ wire [M-1:0] feedback;
 wire [M-1:0] gf_mul_out [0:N-K-1];
 reg [M-1:0] rs_check_reg [0:N-K-1];
 
-genvar i;
+genvar j;
 generate
-    for(i=0;i<N-K;i=i+1) begin : gf_mul_blocks
+    for(j=0;j<N-K;j=j+1) begin : gf_mul_blocks
         zl_gf_mul #
         (
             .Gf_width(Gf_width),
@@ -90,22 +90,22 @@ generate
         gf_mul
         (
             .a(feedback),
-            .b(g[i]),
-            .out(gf_mul_out[i])
+            .b(g[j]),
+            .out(gf_mul_out[j])
         );
     end
 endgenerate
 
 always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
-        for(integer j=0;j<N-K;j=j+1) begin
-            rs_check_reg[j] <= {M{1'b0}};
+        for(i=0;i<N-K;i=i+1) begin
+            rs_check_reg[i] <= {M{1'b0}};
         end
     end
     else if(!stall) begin
         rs_check_reg[0] <= gf_mul_out[0];
-        for(integer j=1;j<N-K;j=j+1) begin
-            rs_check_reg[j] <= rs_check_reg[j-1] ^ gf_mul_out[j];
+        for(i=1;i<N-K;i=i+1) begin
+            rs_check_reg[i] <= rs_check_reg[i-1] ^ gf_mul_out[i];
         end
     end
 end

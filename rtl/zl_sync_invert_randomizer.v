@@ -30,7 +30,7 @@ module zl_sync_invert_randomizer
     output reg [7:0]    data_out
 );
 
-localparam S_idle_invert = 0;
+localparam S_sync_invert = 0;
 localparam S_sync_passthru = 1;
 localparam S_data = 2;
 
@@ -67,7 +67,7 @@ prbs_gen
 );
 
 assign prbs_stall = !(data_in_req && data_out_ack &&
-                            (state_reg != S_sync_invert);
+                            (state_reg != S_sync_invert));
 
 assign prbs_clear = (byte_count == Packet_len-1)
                         && (packet_count == Group_len-1);
@@ -118,7 +118,7 @@ always @(posedge clk or negedge rst_n) begin
 end
 
 always @(*) begin
-    case (state_reg) begin
+    case (state_reg)
         S_sync_invert: begin
             data_in_ack = (data_in_req && !(data_in == Sync_byte))
                             || (data_in_req && data_out_ack);
@@ -135,7 +135,7 @@ always @(*) begin
             data_out_req = data_in_req;
             data_out = data_in ^ prbs;
         end
-    end
+    endcase
 end
 
 endmodule // zl_sync_invert_randomizer
