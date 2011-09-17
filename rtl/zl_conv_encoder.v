@@ -18,7 +18,7 @@ module zl_conv_encoder #
 (
     parameter I_poly = 0,
     parameter Q_poly = 0,
-    parameter K
+    parameter K = 0
 )
 (
     input clk,
