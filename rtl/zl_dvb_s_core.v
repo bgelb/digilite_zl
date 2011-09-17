@@ -14,6 +14,13 @@
 `ifndef _ZL_DVB_S_CORE_V_
 `define _ZL_DVB_S_CORE_V_
 
+`include "zl_fifo_sc.v"
+`include "zl_sync_invert_randomizer.v"
+`include "zl_fifo_2.v"
+`include "zl_rs_encoder.v"
+`include "zl_interleaver.v"
+`include "zl_conv_encoder.v"
+
 module zl_dvb_s_core
 (
     input clk,
