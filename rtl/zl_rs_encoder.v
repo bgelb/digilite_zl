@@ -42,10 +42,14 @@ localparam Gf_width = M;
 
 // unpack G_x vector
 reg [M-1:0] g [0:N-K-1];
+wire [M*(N-K)-1:0] g_x_packed;
+
+assign g_x_packed = G_x;
+
 integer i;
 always @(*) begin
     for(i=0;i<N-K;i=i+1) begin
-        g[i] = G_x[M*(i+1)-1-:M];
+        g[i] = g_x_packed[M*(i+1)-1-:M];
     end
 end
 
@@ -55,8 +59,8 @@ wire cur_sym_is_data;
 // stall logic
 wire stall;
 assign data_out_req = data_in_req;
-assign data_in_ack = data_out_ack;
-assign stall = !data_in_ack;
+assign data_in_ack = data_out_ack && cur_sym_is_data;
+assign stall = !data_in_ack && !(data_out_ack && !cur_sym_is_data);
 
 // keep symbol counter
 always @(posedge clk or negedge rst_n) begin
