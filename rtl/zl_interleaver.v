@@ -232,7 +232,7 @@ always @(posedge clk or negedge rst_n) begin
                 ptr_select <= {N_ptrs_width{1'b0}};
             end
             else begin
-                ptr_select <= 1'b1;
+                ptr_select <= ptr_select + 1'b1;
             end
             //
             rd_ptr[ptr_select] <= rd_ptr[ptr_select] + 1'b1;
