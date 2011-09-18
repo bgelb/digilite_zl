@@ -44,7 +44,7 @@ scfifo #
     .lpm_showahead("ON"),
     .lpm_type("scfifo"),
     .lpm_width(Data_width),
-    .lpm_widthu(Data_width),
+    .lpm_widthu(Addr_width),
     .overflow_checking("ON"),
     .underflow_checking("ON"),
     .use_eab("ON")

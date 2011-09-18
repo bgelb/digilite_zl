@@ -46,7 +46,7 @@ dcfifo #
     .lpm_showahead("ON"),
     .lpm_type("dcfifo"),
     .lpm_width(Data_width),
-    .lpm_widthu(Data_width),
+    .lpm_widthu(Addr_width),
     .overflow_checking("ON"),
     .rdsync_delaypipe = 4,
     .underflow_checking("ON"),
