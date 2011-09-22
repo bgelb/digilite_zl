@@ -31,10 +31,10 @@ end
 
 integer infile;
 integer outfile;
+
 wire data_out_req;
 wire data_out_i;
 wire data_out_q;
-
 
 initial begin
     rst_n = 0;
