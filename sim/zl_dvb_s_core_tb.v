@@ -13,6 +13,8 @@
 `ifndef _ZL_DVB_S_CORE_TB_V_
 `define _ZL_DVB_S_CORE_TB_V_
 
+`timescale 1ns/1ps
+
 module zl_dvb_s_core_tb ();
 
 reg clk;
@@ -42,14 +44,15 @@ initial begin
     wait(clk);
     wait(!clk);
     wait(clk);
+    wait(!clk);
     rst_n = 1;
     infile = $fopen("test.m2v","r");
+    data_in = $fgetc(infile);
     while (!$feof(infile)) begin
-        data_in = $fgetc(infile);
         data_in_req = 1'b1;
-        wait(!clk);
-        wait(data_in_ack);
-        wait(clk);
+        wait(data_in_ack && clk);
+        wait(data_in_ack && !clk);
+        data_in = $fgetc(infile);
     end
     data_in_req = 1'b0;
     wait(clk);
