@@ -35,7 +35,6 @@
 #
 # -------------------------------------------------------------------------- #
 
-
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE22F17C6
 set_global_assignment -name TOP_LEVEL_ENTITY zl_top
@@ -85,6 +84,7 @@ set_location_assignment PIN_T14 -to dac_q
 set_location_assignment PIN_T13 -to dac_i_pre
 set_location_assignment PIN_T15 -to dac_q_pre
 
+# quartus puts some crap at the end of the file every time you run it
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
