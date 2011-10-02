@@ -40,7 +40,7 @@ module zl_top
 wire clk_50;
 wire rst_50_n;
 wire clk_dac_tx;
-wire sys_pll_lock;
+wire sys_pll_locked;
 
 zl_sys_pll sys_pll
 (

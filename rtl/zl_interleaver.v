@@ -38,13 +38,11 @@ localparam Packet_len_width = 8;
 
 localparam Sync_byte = 8'h47;
 
-integer i;
-
 reg [Packet_len_width-1:0] packet_byte_count;
 
 reg [Ptr_width-1:0] rd_ptr [0:N_ptrs-1];
 reg [Ptr_width-1:0] wr_ptr [0:N_ptrs-1];
-reg [N_ptrs_width:0] ptr_select;
+reg [N_ptrs_width-1:0] ptr_select;
 
 wire data_fifo_out_req;
 wire token_fifo_out_req;
@@ -193,9 +191,18 @@ always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
         ptr_select <= {N_ptrs_width{1'b0}};
 
-        for(i=0;i<N_ptrs;i=i+1) begin
-            rd_ptr[i] <= {Ptr_width{1'b0}};
-        end
+        rd_ptr[0] <= {Ptr_width{1'b0}};
+        rd_ptr[1] <= {Ptr_width{1'b0}};
+        rd_ptr[2] <= {Ptr_width{1'b0}};
+        rd_ptr[3] <= {Ptr_width{1'b0}};
+        rd_ptr[4] <= {Ptr_width{1'b0}};
+        rd_ptr[5] <= {Ptr_width{1'b0}};
+        rd_ptr[6] <= {Ptr_width{1'b0}};
+        rd_ptr[7] <= {Ptr_width{1'b0}};
+        rd_ptr[8] <= {Ptr_width{1'b0}};
+        rd_ptr[9] <= {Ptr_width{1'b0}};
+        rd_ptr[10] <= {Ptr_width{1'b0}};
+        rd_ptr[11] <= {Ptr_width{1'b0}};
 
         wr_ptr[0] <= 0;
         wr_ptr[1] <= 17;
