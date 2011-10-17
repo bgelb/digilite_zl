@@ -139,8 +139,8 @@ always @(posedge clk_dac_tx) begin
 end
 
 assign dac_clk = ~clk_dac_tx; // (inverted to center-align clock w/ data)
-assign dac_i_pre = sample_out_i;
-assign dac_q_pre = sample_out_q;
+assign dac_i_pre = ~sample_out_i;
+assign dac_q_pre = ~sample_out_q;
 assign dac_i = sample_out_i_d1;
 assign dac_q = sample_out_q_d1;
 
