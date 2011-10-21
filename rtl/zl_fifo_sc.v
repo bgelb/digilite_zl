@@ -5,10 +5,6 @@
 // Brief Description:
 //  Single-clock FIFO (using Altera scfifo IP).
 //
-//---- Detailed Description ----------------------------------------------------
-//
-//
-//
 //------------------------------------------------------------------------------
 
 `ifndef _ZL_FIFO_SC_V_

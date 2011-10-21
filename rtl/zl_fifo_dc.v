@@ -5,10 +5,6 @@
 // Brief Description:
 //  Dual-clock FIFO (using Altera dcfifo IP).
 //
-//---- Detailed Description ----------------------------------------------------
-//
-//
-//
 //------------------------------------------------------------------------------
 
 `ifndef _ZL_FIFO_DC_V_

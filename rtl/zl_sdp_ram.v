@@ -6,10 +6,6 @@
 //  Simple-dual-port block memory (using Altera block memory).
 //  2-cycle pipeline delay on reads.
 //
-//---- Detailed Description ----------------------------------------------------
-//
-//
-//
 //------------------------------------------------------------------------------
 
 `ifndef _ZL_SDP_RAM_V_

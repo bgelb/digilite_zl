@@ -5,10 +5,6 @@
 // Brief Description:
 //  Performs "transport multiplex adaptation" and randomization for DVB-S.
 //
-//---- Detailed Description ----------------------------------------------------
-//
-//
-//
 //------------------------------------------------------------------------------
 
 `ifndef _ZL_SYNC_INVERT_RANDOMIZER_V_

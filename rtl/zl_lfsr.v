@@ -5,10 +5,6 @@
 // Brief Description:
 //  Parallelized LFSR w/ PRBS vector. PRBS goes from MSb -> LSb.
 //
-//---- Detailed Description ----------------------------------------------------
-//
-//
-//
 //------------------------------------------------------------------------------
 
 `ifndef _ZL_LFSR_V_

@@ -7,11 +7,11 @@
 //
 //---- Detailed Description ----------------------------------------------------
 //
-// See:
+//  See:
 //
-// C. Cummings, D. Mills, and S. Golson, “Asynchronous &
-// synchronous reset design techniques - Part deux,”  Synopsys User
-// Group (SNUG), User papers, Boston, USA, Sept. 2003.
+//  C. Cummings, D. Mills, and S. Golson, “Asynchronous & synchronous reset 
+//   design techniques - Part deux,”  Synopsys User Group (SNUG), User papers,
+//   Boston, USA, Sept. 2003.
 //
 //------------------------------------------------------------------------------
 

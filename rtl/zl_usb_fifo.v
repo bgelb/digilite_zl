@@ -5,10 +5,6 @@
 // Brief Description:
 //  Interface with the FT2232H USB device in async RS245 FIFO mode.
 //
-//---- Detailed Description ----------------------------------------------------
-//
-//
-//
 //------------------------------------------------------------------------------
 
 `ifndef _ZL_USB_FIFO_V_

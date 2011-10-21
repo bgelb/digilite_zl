@@ -5,10 +5,6 @@
 // Brief Description:
 //  Simple 1/2 rate convolutional encoder.
 //
-//---- Detailed Description ----------------------------------------------------
-//
-//
-//
 //------------------------------------------------------------------------------
 
 `ifndef _ZL_CONV_ENCODER_V_

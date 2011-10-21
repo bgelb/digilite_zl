@@ -5,10 +5,6 @@
 // Brief Description:
 //  Reed-Solomon Encoder. Processes one symbol per clock.
 //
-//---- Detailed Description ----------------------------------------------------
-//
-//
-//
 //------------------------------------------------------------------------------
 
 `ifndef _ZL_RS_ENCODER_V_
