@@ -10,7 +10,7 @@
 `ifndef _ZL_TOP_V_
 `define _ZL_TOP_V_
 
-`include "generated/zl_sys_pll.v"
+`include "zl_sys_pll.v"
 `include "zl_dvb_s_core.v"
 `include "zl_fifo_dc.v"
 `include "zl_usb_fifo.v"
@@ -41,11 +41,11 @@ wire sys_pll_locked;
 
 zl_sys_pll sys_pll
 (
-    .areset(~ext_rst_button_n),
-    .inclk0(ext_clk_50),
-    .c0(clk_50),
-    .c1(clk_dac_tx),
-    .locked(sys_pll_locked)
+    .rst_n(ext_rst_button_n),
+    .clk_ref(ext_clk_50),
+    .clk_sys(clk_50),
+    .clk_sample(clk_dac_tx),
+    .lock(sys_pll_locked)
 );
 
 zl_reset_sync sys_reset_sync
