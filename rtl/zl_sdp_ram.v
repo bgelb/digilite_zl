@@ -1,5 +1,10 @@
 //------------------------------------------------------------------------------
 //
+// Copyright 2011, Benjamin Gelb. All Rights Reserved.
+// See LICENSE file for copying permission.
+//
+//------------------------------------------------------------------------------
+//
 // Author: Ben Gelb (ben@gelbnet.com)
 //
 // Brief Description:

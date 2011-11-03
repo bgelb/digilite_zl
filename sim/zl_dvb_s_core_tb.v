@@ -1,12 +1,14 @@
 //------------------------------------------------------------------------------
 //
+// Copyright 2011, Benjamin Gelb. All Rights Reserved.
+// See LICENSE file for copying permission.
+//
+//------------------------------------------------------------------------------
+//
 // Author: Ben Gelb (ben@gelbnet.com)
 //
 // Brief Description:
-//
-//---- Detailed Description ----------------------------------------------------
-//
-//
+//  Quick and dirty test harness for DVB-S encoder "core"
 //
 //------------------------------------------------------------------------------
 
