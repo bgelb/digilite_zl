@@ -1,1 +1,45 @@
+FPGA DVB-S Encoder for DigiLite-ZL
+
+This codebase provides synthesizable RTL for encoding an MPEG transport
+stream (TS) into a sequence of symbols suitable for generating a QPSK waveform.
+
+Hardware:
+This project targets the DigiLite-ZL modulator board and Terasic DE0-Nano FPGA
+development board (Altera Cyclone IV-E).
+
+Details can be found at the following URLs:
+http://www.idesignz.org/DigiLiteZL/DigiLiteZL.htm
+http://www.terasic.com.tw/
+
+Much of the core-logic, however, is not really platform-specific and should
+lend itself to re-use in other projects.
+
+Synthesis:
+Altera's Quartus II software is used for synthesis. At the time of writing,
+the latest version is 11.0 SP1. The freely-available Web Edition of Quartus
+(which supports a subset of Altera FPGA parts, including the Cyclone IV E
+used on the DE0-Nano) may be downloaded from Altera's website at
+http://www.altera.com.
+
+Once installed, an FPGA image can be built by opening the zl_top.qpf file
+located in the syn/de0_nano directory from within Quartus, and selecting
+"Start Compilation" from the Processing menu.
+
+The compiled FPGA image will be called zl_top.sof in the project directory.
+The SOF file may be loaded into the FPGA over JTAG by using the Quartus
+Programmer (found in the Tools menu).
+
+Finally, a .jic file may be produced via File->Convert Programming Files. This
+file can be loaded on the serial configuration ROM on the DE0 board to
+automatically load the FPGA at power-up (to avoid needing JTAG programming each
+time).
+
+Simulation:
+The sim/ directory contains a couple of quick and dirty test harnesses and a
+sample TS file. They are pretty rough around the edges, but should allow basic
+simulation and validation of the design against a golden reference
+implementation (like GBDVB for example). The free version of ModelSim
+supplied with Quartus will run the tests. Any other Verilog simulator should do
+as well.
+
 Questions? Contact ben@gelbnet.com.
